@@ -6,6 +6,10 @@ import java.util.*;
 
 public class TS_LibFileTmcrCodeFileNameWriter {
 
+    private TS_LibFileTmcrCodeFileNameWriter() {
+
+    }
+
     public static List<String> buildFileNameWithAddTextCommands(TGS_FuncMTU_In1<List> commands) {
         List<String> listOfAddTextCommands = TGS_ListUtils.of();
         commands.run(listOfAddTextCommands);

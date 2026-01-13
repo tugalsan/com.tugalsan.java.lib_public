@@ -2,6 +2,9 @@ package com.tugalsan.java.lib.file.tmcr.server.code.text;
 
 public class TS_LibFileTmcrCodeTextTags {
 
+    private TS_LibFileTmcrCodeTextTags() {
+    }
+
     public static String CODE_END_TEXT() {
         return "END_TEXT";
     }

@@ -12,6 +12,9 @@ import module com.tugalsan.java.lib.file.tmcr;
 
 public class TS_LibFileTmcrCodeTableCompile {
 
+    private TS_LibFileTmcrCodeTableCompile() {
+    }
+
     final private static TS_Log d = TS_Log.of(TS_LibFileTmcrCodeTableCompile.class);
 
     public static int DEFAULT_CELL_HEIGHT() {

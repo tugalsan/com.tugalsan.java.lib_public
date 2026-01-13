@@ -2,6 +2,9 @@ package com.tugalsan.java.lib.file.tmcr.server.code.image;
 
 public class TS_LibFileTmcrCodeImageUsage {
 
+    private TS_LibFileTmcrCodeImageUsage() {
+    }
+
     public static void addUsageCode(StringBuilder sb) {
         sb.append("//  ").append(TS_LibFileTmcrCodeImageTags.CODE_INSERT_IMAGE())
                 .append(" MAXWIDTH/").append(TS_LibFileTmcrCodeImageTags.CODE_TOKEN_NULL())

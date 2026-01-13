@@ -1,6 +1,10 @@
 package com.tugalsan.java.lib.file.tmcr.server.code.filename;
 
 public class TS_LibFileTmcrCodeFileNameTags {
+    
+    private TS_LibFileTmcrCodeFileNameTags(){
+        
+    }
 
     //CHANGES ADDTEXT OUTPUT TO FILE NAME BUFFER
     public static String CODE_FILENAME_START() {

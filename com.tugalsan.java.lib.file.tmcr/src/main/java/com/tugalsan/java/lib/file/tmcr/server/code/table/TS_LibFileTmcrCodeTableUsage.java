@@ -2,6 +2,9 @@ package com.tugalsan.java.lib.file.tmcr.server.code.table;
 
 public class TS_LibFileTmcrCodeTableUsage {
 
+    private TS_LibFileTmcrCodeTableUsage() {
+    }
+
     public static void addUsageCode(StringBuilder sb) {
         sb.append("//  ").append(TS_LibFileTmcrCodeTableTags.CODE_BEGIN_TABLE()).append(" COLCOUNT\n");
         sb.append("//  ").append(TS_LibFileTmcrCodeTableTags.CODE_BEGIN_TABLE()).append(" COLWIDTH0 COLWIDTH1 COLWIDTH2...\n");

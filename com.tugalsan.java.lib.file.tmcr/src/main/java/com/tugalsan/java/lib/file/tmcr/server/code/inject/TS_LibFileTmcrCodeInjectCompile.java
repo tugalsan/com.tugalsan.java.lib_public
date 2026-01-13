@@ -11,6 +11,9 @@ import java.util.stream.*;
 
 public class TS_LibFileTmcrCodeInjectCompile {
 
+    private TS_LibFileTmcrCodeInjectCompile() {
+    }
+
     final private static TS_Log d = TS_Log.of(TS_LibFileTmcrCodeInjectCompile.class);
 
     public static TS_Log.Result_withLog compile_CODE_INJECT_CODE(TS_FileCommonConfig fileCommonConfig, Duration timeout) {

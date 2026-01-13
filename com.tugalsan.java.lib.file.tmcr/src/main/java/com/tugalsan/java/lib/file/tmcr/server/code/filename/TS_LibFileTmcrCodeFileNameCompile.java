@@ -4,8 +4,11 @@ import module com.tugalsan.java.core.file.common;
 
 public class TS_LibFileTmcrCodeFileNameCompile {
 
-//    final private static TS_Log d = TS_Log.of(TS_LibFileTmcrCodeFileNameCompile.class);
+    private TS_LibFileTmcrCodeFileNameCompile() {
 
+    }
+
+//    final private static TS_Log d = TS_Log.of(TS_LibFileTmcrCodeFileNameCompile.class);
     public static boolean is_FILENAME_START(TS_FileCommonConfig fileCommonConfig) {
         return fileCommonConfig.macroLineUpperCase.startsWith(TS_LibFileTmcrCodeFileNameTags.CODE_FILENAME_START());
     }

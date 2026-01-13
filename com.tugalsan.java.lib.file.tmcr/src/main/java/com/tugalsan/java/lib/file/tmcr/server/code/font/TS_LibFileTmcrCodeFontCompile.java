@@ -9,6 +9,10 @@ import java.util.*;
 
 public class TS_LibFileTmcrCodeFontCompile {
 
+    private TS_LibFileTmcrCodeFontCompile() {
+
+    }
+
     final private static TS_Log d = TS_Log.of(TS_LibFileTmcrCodeFontCompile.class);
 
     public static boolean is_SET_FONT_COLOR(TS_FileCommonConfig fileCommonConfig) {

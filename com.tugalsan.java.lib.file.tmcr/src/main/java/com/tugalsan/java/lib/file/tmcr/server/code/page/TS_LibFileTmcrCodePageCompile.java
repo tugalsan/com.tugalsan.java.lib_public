@@ -9,6 +9,9 @@ import java.util.*;
 
 public class TS_LibFileTmcrCodePageCompile {
 
+    private TS_LibFileTmcrCodePageCompile() {
+    }
+
     final private static TS_Log d = TS_Log.of(TS_LibFileTmcrCodePageCompile.class);
 
     private static int DEFAULT_PAGE_SIZE_A() {

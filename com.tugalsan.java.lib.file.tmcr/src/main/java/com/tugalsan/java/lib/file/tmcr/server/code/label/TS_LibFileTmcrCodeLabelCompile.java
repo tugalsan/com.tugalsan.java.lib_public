@@ -13,6 +13,9 @@ import java.util.*;
 
 public class TS_LibFileTmcrCodeLabelCompile {
 
+    private TS_LibFileTmcrCodeLabelCompile() {
+    }
+
     final private static TS_Log d = TS_Log.of(TS_LibFileTmcrCodeLabelCompile.class);
 
     public static boolean is_SET_LABEL(TS_FileCommonConfig fileCommonConfig) {

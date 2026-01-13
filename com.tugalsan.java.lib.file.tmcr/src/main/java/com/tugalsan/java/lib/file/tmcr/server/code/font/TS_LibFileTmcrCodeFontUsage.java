@@ -4,6 +4,9 @@ import module com.tugalsan.java.core.file.common;
 
 public class TS_LibFileTmcrCodeFontUsage {
 
+    private TS_LibFileTmcrCodeFontUsage() {
+    }
+
     public static void addUsageCode(StringBuilder sb) {
         sb.append("//  ").append(TS_FileCommonFontTags.CODE_SET_FONT_STYLE()).append(" ").append(TS_FileCommonFontTags.CODE_TOKEN_FONT_STYLE_BOLD()).append("/").append(TS_FileCommonFontTags.CODE_TOKEN_FONT_STYLE_ITALIC()).append("/").append(TS_FileCommonFontTags.CODE_TOKEN_FONT_STYLE_BOLDITALIC()).append("/").append(TS_FileCommonFontTags.CODE_TOKEN_FONT_STYLE_PLAIN()).append("\n");
         sb.append("//  ").append(TS_FileCommonFontTags.CODE_SET_FONT_SIZE()).append(" SIZE\n");

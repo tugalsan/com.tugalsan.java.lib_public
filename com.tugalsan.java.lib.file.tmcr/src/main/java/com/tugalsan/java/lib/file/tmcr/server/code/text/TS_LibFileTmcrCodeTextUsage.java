@@ -2,6 +2,9 @@ package com.tugalsan.java.lib.file.tmcr.server.code.text;
 
 public class TS_LibFileTmcrCodeTextUsage {
 
+    private TS_LibFileTmcrCodeTextUsage() {
+    }
+
     public static void addUsageCode(StringBuilder sb) {
         sb.append("//  ").append(TS_LibFileTmcrCodeTextTags.CODE_BEGIN_TEXT()).append(" ").append(TS_LibFileTmcrCodeTextTags.CODE_TOKEN_LEFT()).append("/").append(TS_LibFileTmcrCodeTextTags.CODE_TOKEN_RIGHT()).append("/").append(TS_LibFileTmcrCodeTextTags.CODE_TOKEN_CENTER()).append("/").append(TS_LibFileTmcrCodeTextTags.CODE_TOKEN_JUST()).append("\n");
         sb.append("//  ").append(TS_LibFileTmcrCodeTextTags.CODE_END_TEXT()).append("\n");

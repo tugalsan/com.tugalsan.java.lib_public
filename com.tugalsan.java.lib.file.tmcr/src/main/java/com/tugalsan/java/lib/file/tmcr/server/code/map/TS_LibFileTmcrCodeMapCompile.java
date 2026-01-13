@@ -14,6 +14,9 @@ import java.util.*;
 
 public class TS_LibFileTmcrCodeMapCompile {
 
+    private TS_LibFileTmcrCodeMapCompile() {
+    }
+
     final private static TS_Log d = TS_Log.of(TS_LibFileTmcrCodeMapCompile.class);
 
     public static boolean is_MAPADD_FROMSQL(TS_FileCommonConfig fileCommonConfig) {

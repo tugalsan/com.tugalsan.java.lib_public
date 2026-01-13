@@ -4,6 +4,9 @@ import module com.tugalsan.java.core.string;
 
 public class TS_LibFileTmcrCodeMapWriter {
 
+    private TS_LibFileTmcrCodeMapWriter() {
+    }
+
     public static String MAPGET(String ID) {
         return TGS_StringUtils.cmn().concat(TS_LibFileTmcrCodeMapTags.CODE_MAPGET(), ".", ID, "\n");
     }

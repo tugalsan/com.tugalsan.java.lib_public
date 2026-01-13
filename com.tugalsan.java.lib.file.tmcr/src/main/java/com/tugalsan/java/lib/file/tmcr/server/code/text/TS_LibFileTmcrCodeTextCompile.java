@@ -14,13 +14,15 @@ import module com.tugalsan.java.core.thread;
 import module com.tugalsan.java.lib.file.tmcr;
 import module com.tugalsan.java.lib.rql.buffer;
 import module com.tugalsan.java.lib.rql;
-import com.tugalsan.java.lib.rql.link.server.TS_LibRqlLinkUtils;
-
+import module com.tugalsan.java.lib.rql.link;
 import module com.tugalsan.java.lib.rql.rev;
 import java.time.*;
 import java.util.*;
 
 public class TS_LibFileTmcrCodeTextCompile {
+
+    private TS_LibFileTmcrCodeTextCompile() {
+    }
 
     final private static TS_Log d = TS_Log.of(TS_LibFileTmcrCodeTextCompile.class);
 

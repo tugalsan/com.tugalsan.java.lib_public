@@ -6,6 +6,9 @@ import java.util.stream.*;
 
 public class TS_LibFileTmcrCodeTextWriter {
 
+    private TS_LibFileTmcrCodeTextWriter() {
+    }
+
     final private static TS_Log d = TS_Log.of(TS_LibFileTmcrCodeTextWriter.class);
 
     public static String END_TEXT() {

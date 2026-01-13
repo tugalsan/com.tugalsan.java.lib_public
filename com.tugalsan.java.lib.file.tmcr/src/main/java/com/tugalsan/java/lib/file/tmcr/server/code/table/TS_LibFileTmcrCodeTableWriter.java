@@ -11,6 +11,9 @@ import java.util.stream.*;
 
 public class TS_LibFileTmcrCodeTableWriter {
 
+    private TS_LibFileTmcrCodeTableWriter() {
+    }
+
     final private static TS_Log d = TS_Log.of(TS_LibFileTmcrCodeTableWriter.class);
 
     public static String SET_TABLECELL_NOBORDER(boolean enabled) {

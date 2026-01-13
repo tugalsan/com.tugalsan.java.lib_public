@@ -8,6 +8,9 @@ import module com.tugalsan.java.core.string;
 
 public class TS_LibFileTmcrFilePrefferedFileName {
 
+    private TS_LibFileTmcrFilePrefferedFileName() {
+    }
+
     final private static TS_Log d = TS_Log.of(TS_LibFileTmcrFilePrefferedFileName.class);
 
     public static void renameFiles_ifEnabled(TS_FileCommonAbstract mif, TS_FileCommonConfig fileCommonConfig) {

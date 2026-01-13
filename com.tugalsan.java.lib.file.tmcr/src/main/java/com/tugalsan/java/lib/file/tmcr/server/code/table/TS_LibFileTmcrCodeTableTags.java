@@ -2,6 +2,9 @@ package com.tugalsan.java.lib.file.tmcr.server.code.table;
 
 public class TS_LibFileTmcrCodeTableTags {
 
+    private TS_LibFileTmcrCodeTableTags() {
+    }
+
     public static String CODE_END_TABLECELL() {
         return "END_TABLECELL";
     }

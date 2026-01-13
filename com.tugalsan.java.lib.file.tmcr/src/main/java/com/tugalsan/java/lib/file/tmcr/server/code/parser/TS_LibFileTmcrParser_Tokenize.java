@@ -7,6 +7,9 @@ import module com.tugalsan.java.core.string;
 
 public class TS_LibFileTmcrParser_Tokenize {
 
+    private TS_LibFileTmcrParser_Tokenize() {
+    }
+
     final private static TS_Log d = TS_Log.of(TS_LibFileTmcrParser_Tokenize.class);
 
     public static TS_Log.Result_withLog compile_TOKENIZE(TS_FileCommonConfig fileCommonConfig, int i) {

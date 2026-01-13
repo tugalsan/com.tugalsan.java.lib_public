@@ -2,6 +2,9 @@ package com.tugalsan.java.lib.file.tmcr.server.code.image.builder;
 
 public class TS_LibFileTmcrCodeImageBuilder {
 
+    private TS_LibFileTmcrCodeImageBuilder() {
+    }
+
     public static TS_LibFileTmcrCodeImageBuilderMaxWidth maxWidth(Integer maxWidthNullable) {
         return new TS_LibFileTmcrCodeImageBuilderMaxWidth(maxWidthNullable);
     }

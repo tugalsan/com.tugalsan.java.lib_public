@@ -6,6 +6,9 @@ import java.util.stream.*;
 
 public class TS_LibFileTmcrParser_Usage {
 
+    private TS_LibFileTmcrParser_Usage() {
+    }
+
 //    final public static String CODE_EXT () "EXT";
 //    final public static String CODE_TOKEN_ADMIN () "ADMIN";
 //    final public static String CODE_TOKEN_BYCONTENT () "BYCONTENT";

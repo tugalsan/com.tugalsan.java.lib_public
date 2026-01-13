@@ -7,6 +7,9 @@ import module com.tugalsan.java.core.file.common;
 
 public class TS_LibFileTmcrCodeUrlCompile {
 
+    private TS_LibFileTmcrCodeUrlCompile() {
+    }
+
     final private static TS_Log d = TS_Log.of(TS_LibFileTmcrCodeUrlCompile.class);
 
     public static boolean is_CODE_URL_SH_OLD(TS_FileCommonConfig fileCommonConfig, int idx) {

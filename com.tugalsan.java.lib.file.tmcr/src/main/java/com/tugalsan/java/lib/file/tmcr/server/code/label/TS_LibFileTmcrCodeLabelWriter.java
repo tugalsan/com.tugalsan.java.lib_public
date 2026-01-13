@@ -2,6 +2,9 @@ package com.tugalsan.java.lib.file.tmcr.server.code.label;
 
 public class TS_LibFileTmcrCodeLabelWriter {
 
+    private TS_LibFileTmcrCodeLabelWriter() {
+    }
+
     public static String SET_LABEL(String label) {
         return TS_LibFileTmcrCodeLabelTags.CODE_SET_LABEL() + " " + label + "\n";
     }

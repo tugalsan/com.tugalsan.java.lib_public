@@ -8,6 +8,9 @@ import java.nio.file.*;
 
 public class TS_LibFileTmcrFileSetName {
 
+    private TS_LibFileTmcrFileSetName() {
+    }
+
     final private static TS_Log d = TS_Log.of(TS_LibFileTmcrFileSetName.class);
 
     public static Path path(TS_FileCommonConfig fileCommonConfig, String fileNameFull) {

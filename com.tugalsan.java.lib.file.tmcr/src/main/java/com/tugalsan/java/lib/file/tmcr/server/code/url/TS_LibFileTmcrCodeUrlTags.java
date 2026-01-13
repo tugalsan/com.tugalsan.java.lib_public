@@ -4,6 +4,9 @@ import module com.tugalsan.java.core.servlet.url;
 
 public class TS_LibFileTmcrCodeUrlTags {
 
+    private TS_LibFileTmcrCodeUrlTags() {
+    }
+
     public static String CODE_URL_SH_OLD() {
         return "sh?servletName(){ return ";
     }

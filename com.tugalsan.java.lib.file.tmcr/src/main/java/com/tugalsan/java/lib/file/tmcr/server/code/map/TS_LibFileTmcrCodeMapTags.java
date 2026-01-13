@@ -2,6 +2,9 @@ package com.tugalsan.java.lib.file.tmcr.server.code.map;
 
 public class TS_LibFileTmcrCodeMapTags {
 
+    private TS_LibFileTmcrCodeMapTags() {
+    }
+
     public static String CODE_MAPADD_FROMSQL() {
         return "MAPADD_FROMSQL";
     }

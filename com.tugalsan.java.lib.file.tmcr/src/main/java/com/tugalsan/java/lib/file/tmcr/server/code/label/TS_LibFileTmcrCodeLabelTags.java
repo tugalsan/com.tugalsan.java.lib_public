@@ -2,6 +2,9 @@ package com.tugalsan.java.lib.file.tmcr.server.code.label;
 
 public class TS_LibFileTmcrCodeLabelTags {
 
+    private TS_LibFileTmcrCodeLabelTags() {
+    }
+
     public static String ERROR() {
         return "ERROR";
     }

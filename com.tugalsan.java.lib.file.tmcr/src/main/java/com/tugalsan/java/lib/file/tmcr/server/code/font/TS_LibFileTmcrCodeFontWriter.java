@@ -5,6 +5,9 @@ import module com.tugalsan.java.core.string;
 
 public class TS_LibFileTmcrCodeFontWriter {
 
+    private TS_LibFileTmcrCodeFontWriter() {
+    }
+
     public static String SET_FONT_SIZE(int size) {
         return TS_FileCommonFontTags.CODE_SET_FONT_SIZE() + " " + size + "\n";
     }

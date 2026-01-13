@@ -2,6 +2,10 @@ package com.tugalsan.java.lib.file.tmcr.client;
 
 public class TGS_LibFileTmcrTypes {
 
+    private TGS_LibFileTmcrTypes() {
+
+    }
+
     public static String FILE_TYPE_PDF() {
         return ".pdf";
     }

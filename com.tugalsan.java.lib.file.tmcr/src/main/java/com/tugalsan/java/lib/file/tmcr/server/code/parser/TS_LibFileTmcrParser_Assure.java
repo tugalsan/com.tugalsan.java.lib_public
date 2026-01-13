@@ -17,6 +17,9 @@ import java.util.stream.*;
 
 public class TS_LibFileTmcrParser_Assure {
 
+    private TS_LibFileTmcrParser_Assure() {
+    }
+
     final private static TS_Log d = TS_Log.of(TS_LibFileTmcrParser_Assure.class);
 
     public static boolean checkTokenSizeEqualsOrMore(TS_FileCommonConfig fileCommonConfig, int tokenSize) {
