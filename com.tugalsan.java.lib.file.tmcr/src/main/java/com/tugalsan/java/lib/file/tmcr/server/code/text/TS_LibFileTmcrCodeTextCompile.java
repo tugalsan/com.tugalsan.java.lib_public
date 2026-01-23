@@ -70,10 +70,27 @@ public class TS_LibFileTmcrCodeTextCompile {
     public static boolean is_ADD_TEXT(TS_FileCommonConfig fileCommonConfig) {
         return fileCommonConfig.macroLineUpperCase.startsWith(TS_LibFileTmcrCodeTextTags.CODE_ADD_TEXT() + " ") || fileCommonConfig.macroLineUpperCase.equals(TS_LibFileTmcrCodeTextTags.CODE_ADD_TEXT());
     }
-
+    
     public static TS_Log.Result_withLog compile_ADD_TEXT(TS_FileCommonConfig fileCommonConfig, TS_LibFileTmcrFileHandler mifHandler, boolean filenameMode) {
         var result = d.createFuncBoolean("compile_ADD_TEXT");
         var text = TS_LibFileTmcrCodeTextTags.CODE_ADD_TEXT().length() == fileCommonConfig.macroLine.length() ? "" : fileCommonConfig.macroLine.substring(TS_LibFileTmcrCodeTextTags.CODE_ADD_TEXT().length() + 1);
+        if (filenameMode) {
+            fileCommonConfig.prefferedFileNameLabel += text;
+            return result.mutate2True();
+        } else if (mifHandler.addText(text)) {
+            return result.mutate2True();
+        } else {
+            return result.mutate2Error("fileCommonConfig.mifHandler.addText(text) == false");
+        }
+    }
+    
+    public static boolean is_ADD_TEXT_PURECODE(TS_FileCommonConfig fileCommonConfig) {
+        return fileCommonConfig.macroLineUpperCase.startsWith(TS_LibFileTmcrCodeTextTags.CODE_ADD_TEXT_PURECODE()+ " ") || fileCommonConfig.macroLineUpperCase.equals(TS_LibFileTmcrCodeTextTags.CODE_ADD_TEXT_PURECODE());
+    }
+
+    public static TS_Log.Result_withLog compile_ADD_TEXT_PURECODE(TS_FileCommonConfig fileCommonConfig, TS_LibFileTmcrFileHandler mifHandler, boolean filenameMode) {
+        var result = d.createFuncBoolean("compile_ADD_TEXT_PURECODE");
+        var text = TS_LibFileTmcrCodeTextTags.CODE_ADD_TEXT_PURECODE().length() == fileCommonConfig.macroLine.length() ? "" : fileCommonConfig.macroLine.substring(TS_LibFileTmcrCodeTextTags.CODE_ADD_TEXT_PURECODE().length() + 1);
         if (filenameMode) {
             fileCommonConfig.prefferedFileNameLabel += text;
             return result.mutate2True();

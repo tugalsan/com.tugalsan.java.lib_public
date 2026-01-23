@@ -1,9 +1,9 @@
 package com.tugalsan.java.lib.file.tmcr.server.code.page;
 
 public class TS_LibFileTmcrCodePageWriter {
-    
-    private TS_LibFileTmcrCodePageWriter(){
-        
+
+    private TS_LibFileTmcrCodePageWriter() {
+
     }
 
     public static String INSERT_PAGE(int A_from_0_to_6, boolean isLandScape) {
@@ -15,7 +15,10 @@ public class TS_LibFileTmcrCodePageWriter {
     }
 
     public static String COPY_PAGE_BEGIN(CharSequence id, CharSequence loc, CharSequence name) {
-        return TS_LibFileTmcrCodePageTags.CODE_COPY_PAGE_BEGIN() + " " + id + " {" + loc.toString().replace(" ", "*") + "} {" + name.toString().replace(" ", "*") + "}\n";
+        var tag = TS_LibFileTmcrCodePageTags.CODE_COPY_PAGE_BEGIN();
+        var locSpaceEscaped = loc.toString().replace(" ", "*");
+        var nameSpaceEscaped = name.toString().replace(" ", "*");
+        return tag + " " + id + " {" + locSpaceEscaped + "} {" + nameSpaceEscaped + "}\n";
     }
 
     public static String COPY_PAGE_END(CharSequence id) {

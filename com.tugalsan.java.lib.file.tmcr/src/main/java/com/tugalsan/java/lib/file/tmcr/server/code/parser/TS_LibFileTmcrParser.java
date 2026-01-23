@@ -329,6 +329,17 @@ public class TS_LibFileTmcrParser {
                     }
                     continue;
                 }
+                
+                if (TS_LibFileTmcrCodeTextCompile.is_ADD_TEXT_PURECODE(fileCommonConfig)) {
+                    d.ci("compileCode", "is_ADD_TEXT_PURECODE");
+                    cmd = TS_LibFileTmcrCodeTextCompile.compile_ADD_TEXT_PURECODE(fileCommonConfig, mifHandler, filenameMode);
+                    if (!cmd.result) {
+                        mifHandler.saveFile(cmd.classNameDotfuncName + "->" + cmd.log);
+                        d.ce("compileCode", "return@macroLines", i);
+                        return null;
+                    }
+                    continue;
+                }
 
                 if (TS_LibFileTmcrCodeTextCompile.is_ADD_TEXT_HTML(fileCommonConfig)) {
                     d.ci("compileCode", "is_ADD_TEXT_HTML");

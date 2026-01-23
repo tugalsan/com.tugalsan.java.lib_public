@@ -33,6 +33,10 @@ public class TS_LibFileTmcrCodeTextTags {
         return "ADD_TEXT";
     }
 
+    public static String CODE_ADD_TEXT_PURECODE() {
+        return "ADD_TEXT_PURECODE";
+    }
+
     public static String CODE_ADD_TEXT_NEWLINE() {
         return "ADD_TEXT_NEWLINE";
     }

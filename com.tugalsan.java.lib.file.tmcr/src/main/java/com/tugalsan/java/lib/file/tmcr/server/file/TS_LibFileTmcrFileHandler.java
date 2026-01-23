@@ -121,11 +121,11 @@ public class TS_LibFileTmcrFileHandler {
             }
             TS_LibFileTmcrFilePrefferedFileName.renameZip(fileCommonConfig, _fileHandler);
         }
-        var linesBegin = fileCommonConfig.macroLines.stream().filter(line -> line.startsWith(TS_LibFileTmcrCodeTextTags.CODE_ADD_TEXT() + " " + TS_LibFileTmcrCodePageTags.CODE_COPY_PAGE_BEGIN())).toList();
+        var linesBegin = fileCommonConfig.macroLines.stream().filter(line -> line.startsWith(TS_LibFileTmcrCodeTextTags.CODE_ADD_TEXT_PURECODE() + " " + TS_LibFileTmcrCodePageTags.CODE_COPY_PAGE_BEGIN())).toList();
         if (linesBegin.isEmpty()) {
             d.ce("use", "linesBegin.isEmpty()", linesBegin.isEmpty());
         } else {
-            var linesEnd = fileCommonConfig.macroLines.stream().filter(line -> line.startsWith(TS_LibFileTmcrCodeTextTags.CODE_ADD_TEXT() + " " + TS_LibFileTmcrCodePageTags.CODE_COPY_PAGE_END())).toList();
+            var linesEnd = fileCommonConfig.macroLines.stream().filter(line -> line.startsWith(TS_LibFileTmcrCodeTextTags.CODE_ADD_TEXT_PURECODE() + " " + TS_LibFileTmcrCodePageTags.CODE_COPY_PAGE_END())).toList();
             d.ce("use", "linesBegin", linesBegin);
             d.ce("use", "linesEnd", linesEnd);
             _fileHandler.files.stream().filter(file -> file instanceof TS_FilePdfOpenPdf).map(file -> (TS_FilePdfOpenPdf) file).forEach(pdf -> {
@@ -370,13 +370,21 @@ public class TS_LibFileTmcrFileHandler {
         return fileCommonConfig.fontFamilyFonts.get(fontFamilyIdx).regular();
     }
 
+    public boolean addTextPureCode(String fullText) {
+        return addText(fullText, true);
+    }
+
     public boolean addText(String fullText) {
+        return addText(fullText, false);
+    }
+
+    private boolean addText(String fullText, boolean pureCode) {
         if (fullText.isEmpty()) {
-            d.ci("fullText", "fullText.isEmpty");
+            d.ci("fullText", "fullText.isEmpty", "pureCode", pureCode);
             return true;
         }
         if (TS_FontUtils.canDisplay(getFont(0), fullText)) {
-            return addText_canDisplay(fullText);
+            return addText_canDisplay(fullText, pureCode);
         }
         var fontFamilySize = fileCommonConfig.fontFamilyFonts.size();
         var fullTextThatCanBeDisplayed = TGS_FuncMTUEffectivelyFinal.ofStr().coronateAs(__ -> {//change unsupported codePoints to '?'
@@ -412,7 +420,7 @@ public class TS_LibFileTmcrFileHandler {
             });
             if (decidedFontFamilyIdx != fileCommonConfig.fontFamilyIdx) {//If new font detected
                 if (!sb.isEmpty()) {//send previous data to addText_canDisplay
-                    addText_canDisplay(sb.toString());
+                    addText_canDisplay(sb.toString(), pureCode);
                     sb.setLength(0);
                 }
                 {//prepare new font
@@ -422,7 +430,7 @@ public class TS_LibFileTmcrFileHandler {
             }
             sb.appendCodePoint(cp);//buffer to be sent later time
         });
-        addText_canDisplay(sb.toString());//send the last batch
+        addText_canDisplay(sb.toString(), pureCode);//send the last batch
         {//prepare default font before exiting func
             fileCommonConfig.fontFamilyIdx = 0;
             setFontStyle();
@@ -430,13 +438,13 @@ public class TS_LibFileTmcrFileHandler {
         return true;
     }
 
-    private boolean addText_canDisplay(String fullText) {
+    private boolean addText_canDisplay(String fullText, boolean pureCode) {
         TGS_Tuple1<Boolean> result = new TGS_Tuple1(true);
         var tokens = TGS_StringUtils.jre().toList(fullText, "\n");
         IntStream.range(0, tokens.size()).forEachOrdered(i -> {
             var lineText = tokens.get(i);
             if (!lineText.isEmpty()) {
-                var b = addText_line(lineText);
+                var b = addText_line(lineText, pureCode);
                 if (!b) {
                     result.value0 = false;
                 }
@@ -451,7 +459,7 @@ public class TS_LibFileTmcrFileHandler {
         return result.value0;
     }
 
-    private boolean addText_line(String lineText) {
+    private boolean addText_line(String lineText, boolean pureCode) {
         d.ci("addText_line", "lineText", lineText);
         if (colors.isEmpty()) {
             colors.add(TS_FileCommonFontTags.CODE_TOKEN_FONT_COLOR_BLACK());
@@ -568,7 +576,7 @@ public class TS_LibFileTmcrFileHandler {
                                     }
                                 }
                             }
-                            result.value0 = result.value0 && addText_do(fontHeightText);
+                            result.value0 = result.value0 && addText_do(fontHeightText, pureCode);
                         }
                     }
                 }
@@ -577,11 +585,11 @@ public class TS_LibFileTmcrFileHandler {
         return result.value0;
     }
 
-    private boolean addText_do(String text) {
+    private boolean addText_do(String text, boolean pureCode) {
         TGS_Tuple1<Boolean> result = new TGS_Tuple1(true);
         var stream = fileCommonConfig.PARALLEL ? files.parallelStream() : files.stream();
         stream.filter(mif -> mif.isEnabled()).forEach(mi -> {
-            var b = mi.addText(text);
+            var b = pureCode ? mi.addTextPureCode(text) : mi.addText(text);
             if (!b) {
                 result.value0 = false;
             }
