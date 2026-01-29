@@ -1,5 +1,7 @@
 package com.tugalsan.java.lib.file.tmcr.server.code.page;
 
+import com.tugalsan.java.core.crypto.client.TGS_CryptUtils;
+
 public class TS_LibFileTmcrCodePageWriter {
 
     private TS_LibFileTmcrCodePageWriter() {
@@ -16,9 +18,9 @@ public class TS_LibFileTmcrCodePageWriter {
 
     public static String COPY_PAGE_BEGIN(CharSequence id, CharSequence loc, CharSequence name) {
         var tag = TS_LibFileTmcrCodePageTags.CODE_COPY_PAGE_BEGIN();
-        var locSpaceEscaped = loc.toString().replace(" ", "*");
-        var nameSpaceEscaped = name.toString().replace(" ", "*");
-        return tag + " " + id + " {" + locSpaceEscaped + "} {" + nameSpaceEscaped + "}\n";
+        var loc64 = TGS_CryptUtils.encrypt64(loc);
+        var name64 = TGS_CryptUtils.encrypt64(name);
+        return tag + " " + id + " " + loc64 + " " + name64 + "\n";
     }
 
     public static String COPY_PAGE_END(CharSequence id) {

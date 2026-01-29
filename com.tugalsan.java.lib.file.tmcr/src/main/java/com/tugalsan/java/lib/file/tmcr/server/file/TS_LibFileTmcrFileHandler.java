@@ -370,21 +370,13 @@ public class TS_LibFileTmcrFileHandler {
         return fileCommonConfig.fontFamilyFonts.get(fontFamilyIdx).regular();
     }
 
-    public boolean addTextPureCode(String fullText) {
-        return addText(fullText, true);
-    }
-
     public boolean addText(String fullText) {
-        return addText(fullText, false);
-    }
-
-    private boolean addText(String fullText, boolean pureCode) {
         if (fullText.isEmpty()) {
-            d.ci("fullText", "fullText.isEmpty", "pureCode", pureCode);
+            d.ci("fullText", "fullText.isEmpty");
             return true;
         }
         if (TS_FontUtils.canDisplay(getFont(0), fullText)) {
-            return addText_canDisplay(fullText, pureCode);
+            return addText_canDisplay(fullText);
         }
         var fontFamilySize = fileCommonConfig.fontFamilyFonts.size();
         var fullTextThatCanBeDisplayed = TGS_FuncMTUEffectivelyFinal.ofStr().coronateAs(__ -> {//change unsupported codePoints to '?'
@@ -420,7 +412,7 @@ public class TS_LibFileTmcrFileHandler {
             });
             if (decidedFontFamilyIdx != fileCommonConfig.fontFamilyIdx) {//If new font detected
                 if (!sb.isEmpty()) {//send previous data to addText_canDisplay
-                    addText_canDisplay(sb.toString(), pureCode);
+                    addText_canDisplay(sb.toString());
                     sb.setLength(0);
                 }
                 {//prepare new font
@@ -430,7 +422,7 @@ public class TS_LibFileTmcrFileHandler {
             }
             sb.appendCodePoint(cp);//buffer to be sent later time
         });
-        addText_canDisplay(sb.toString(), pureCode);//send the last batch
+        addText_canDisplay(sb.toString());//send the last batch
         {//prepare default font before exiting func
             fileCommonConfig.fontFamilyIdx = 0;
             setFontStyle();
@@ -438,13 +430,13 @@ public class TS_LibFileTmcrFileHandler {
         return true;
     }
 
-    private boolean addText_canDisplay(String fullText, boolean pureCode) {
+    private boolean addText_canDisplay(String fullText) {
         TGS_Tuple1<Boolean> result = new TGS_Tuple1(true);
         var tokens = TGS_StringUtils.jre().toList(fullText, "\n");
         IntStream.range(0, tokens.size()).forEachOrdered(i -> {
             var lineText = tokens.get(i);
             if (!lineText.isEmpty()) {
-                var b = addText_line(lineText, pureCode);
+                var b = addText_line(lineText);
                 if (!b) {
                     result.value0 = false;
                 }
@@ -459,7 +451,7 @@ public class TS_LibFileTmcrFileHandler {
         return result.value0;
     }
 
-    private boolean addText_line(String lineText, boolean pureCode) {
+    private boolean addText_line(String lineText) {
         d.ci("addText_line", "lineText", lineText);
         if (colors.isEmpty()) {
             colors.add(TS_FileCommonFontTags.CODE_TOKEN_FONT_COLOR_BLACK());
@@ -576,7 +568,7 @@ public class TS_LibFileTmcrFileHandler {
                                     }
                                 }
                             }
-                            result.value0 = result.value0 && addText_do(fontHeightText, pureCode);
+                            result.value0 = result.value0 && addText_do(fontHeightText);
                         }
                     }
                 }
@@ -585,11 +577,11 @@ public class TS_LibFileTmcrFileHandler {
         return result.value0;
     }
 
-    private boolean addText_do(String text, boolean pureCode) {
+    private boolean addText_do(String text) {
         TGS_Tuple1<Boolean> result = new TGS_Tuple1(true);
         var stream = fileCommonConfig.PARALLEL ? files.parallelStream() : files.stream();
         stream.filter(mif -> mif.isEnabled()).forEach(mi -> {
-            var b = pureCode ? mi.addTextPureCode(text) : mi.addText(text);
+            var b = mi.addText(text);
             if (!b) {
                 result.value0 = false;
             }
