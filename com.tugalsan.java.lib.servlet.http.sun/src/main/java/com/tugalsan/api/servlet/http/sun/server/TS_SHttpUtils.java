@@ -29,15 +29,22 @@ public class TS_SHttpUtils {
         return isLocalHost(httpExchange)
                 || TGS_NetworkIPUtils.isLocalClient("192.168.5.14", clientIp0)
                 || TGS_NetworkIPUtils.isLocalClient("192.168.7.1", clientIp0)
+                || TGS_NetworkIPUtils.isLocalClient("192.168.7.200", clientIp0)
                 || TGS_NetworkIPUtils.isLocalClient("192.168.7.7", clientIp0)
+                || TGS_NetworkIPUtils.isLocalClient("192.168.7.63", clientIp0)
+                || TGS_NetworkIPUtils.isLocalClient("192.168.7.77", clientIp0)
                 || TGS_NetworkIPUtils.isLocalClient("10.0.0.10", clientIp0)
                 || TGS_NetworkIPUtils.isLocalClient("192.168.5.14", clientIp1)
                 || TGS_NetworkIPUtils.isLocalClient("192.168.7.1", clientIp1)
                 || TGS_NetworkIPUtils.isLocalClient("192.168.7.7", clientIp1)
+                || TGS_NetworkIPUtils.isLocalClient("192.168.7.63", clientIp1)
+                || TGS_NetworkIPUtils.isLocalClient("192.168.7.77", clientIp1)
                 || TGS_NetworkIPUtils.isLocalClient("10.0.0.10", clientIp1)
                 || TGS_NetworkIPUtils.isLocalClient("192.168.5.14", clientIp2)
                 || TGS_NetworkIPUtils.isLocalClient("192.168.7.1", clientIp2)
                 || TGS_NetworkIPUtils.isLocalClient("192.168.7.7", clientIp2)
+                || TGS_NetworkIPUtils.isLocalClient("192.168.7.63", clientIp2)
+                || TGS_NetworkIPUtils.isLocalClient("192.168.7.77", clientIp2)
                 || TGS_NetworkIPUtils.isLocalClient("10.0.0.10", clientIp2);
     }
 
